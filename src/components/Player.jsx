@@ -4,7 +4,8 @@ const Player = ({ name, symbol }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const editHandler = () => {
-    setIsEditing(!isEditing);
+    // setIsEditing(!isEditing);  Bad practice as react doesn't update the state immediately
+    setIsEditing((prevState) => !prevState);
   };
 
   return (
