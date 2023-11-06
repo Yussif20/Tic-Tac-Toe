@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-const Player = ({ name, symbol }) => {
+const Player = ({ initialName, symbol }) => {
+  const [playerName, setPlayerName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
 
   const editHandler = () => {
@@ -8,13 +9,22 @@ const Player = ({ name, symbol }) => {
     setIsEditing((prevState) => !prevState);
   };
 
+  const changeHandler = (e) => {
+    setPlayerName(e.target.value);
+  };
+
   return (
     <li>
       <span className="player">
         {isEditing ? (
-          <input type="text" required value={name} />
+          <input
+            type="text"
+            required
+            value={playerName}
+            onChange={changeHandler}
+          />
         ) : (
-          <span className="player-name">{name}</span>
+          <span className="player-name">{playerName}</span>
         )}
         <span className="player-symbol">{symbol}</span>
       </span>
