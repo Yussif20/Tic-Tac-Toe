@@ -1,7 +1,14 @@
-const Log = () => {
+const Log = ({ turns }) => {
   return (
     <ol id="log">
-      <li>Log</li>
+      {turns.map((turn) => {
+        return (
+          <li key={`${turn.square.row}${turn.square.col}`}>
+            Player :{turn.player}
+            selected :{turn.square.row},{turn.square.col}
+          </li>
+        );
+      })}
     </ol>
   );
 };
