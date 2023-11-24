@@ -1,10 +1,10 @@
-const GameOver = ({ winner }) => {
+const GameOver = ({ winner, onReset }) => {
   return (
     <div id="game-over">
       <h2>Game over!</h2>
       {winner ? <p>{winner} won!</p> : <p>it's a draw!</p>}
 
-      <button>rematch</button>
+      <button onClick={onReset}>rematch</button>
     </div>
   );
 };
